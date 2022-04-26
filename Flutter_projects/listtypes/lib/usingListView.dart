@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 class UsingListView extends StatelessWidget {
    UsingListView({ Key? key }) : super(key: key);
 List<Book> allBooks=List.generate(2000, (index) => 
@@ -17,7 +18,15 @@ Book(index+1,'Book Name ${index+1}','Writer Name ${index+1}'));
 
           child: ListTile(
             onTap: (){
-              print('Clicked : $index');
+              //print('Clicked : $index');
+              EasyLoading.instance.backgroundColor=Colors.blue;
+              EasyLoading.showToast('Clicked',
+              duration: Duration(seconds: 2),
+              dismissOnTap: true,
+              toastPosition: EasyLoadingToastPosition.bottom);
+            },
+            onLongPress: (){
+              usingAlertDialog(context);
             },
           title:Text(currentBook.name),
           subtitle: Text(currentBook.writer),
@@ -46,6 +55,50 @@ Book(index+1,'Book Name ${index+1}','Writer Name ${index+1}'));
         leading: CircleAvatar(child: Text(book.id.toString()),),
       )).toList(),
     );
+  }
+
+  void usingAlertDialog(BuildContext myContext) {
+    //For IOS
+    //showCupertinoDialog(context: context, builder: builder)
+    showDialog(
+      barrierDismissible: false,
+      context: myContext, 
+      builder: (context){
+      
+      return AlertDialog(
+        
+        title: Text('Alert Dialog'),
+        content:SingleChildScrollView(
+          //child:Text('Hello Alert'*100) ,
+          child:ListBody(
+            children: [
+            Text('Hello'*50),
+            Text('World'*50),
+            Text('Alert Dialog'*100),
+          ],)
+          ),
+          actions: [
+            ButtonBar(
+              children: [
+                  TextButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, child: Text('Yes')),
+                  TextButton(onPressed: (){}, child: Text('No')),
+                  /* TextButton(onPressed: (){}, child: Text('Yes')),
+                  TextButton(onPressed: (){}, child: Text('No')),
+                  TextButton(onPressed: (){}, child: Text('Yes')),
+                  TextButton(onPressed: (){}, child: Text('No')),
+                  TextButton(onPressed: (){}, child: Text('Yes')),
+                  TextButton(onPressed: (){}, child: Text('No')),
+                  TextButton(onPressed: (){}, child: Text('Yes')),
+                  TextButton(onPressed: (){}, child: Text('No')), */
+              ],
+            )
+            
+
+          ],
+      );
+    });
   }
 }
 
