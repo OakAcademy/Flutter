@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "626537202001",
+    "project_id": "flutter-firebase-ab78d",
+    "storage_bucket": "flutter-firebase-ab78d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626537202001:android:2f5783cc59297db8585370",
+        "android_client_info": {
+          "package_name": "stevegregor1outlook.flutter_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626537202001-m7plfi213la9ae89fv99qcctonlccssq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrqypKZk0WWNXWWsRg9FrqzK42CwkYmUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626537202001-m7plfi213la9ae89fv99qcctonlccssq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
